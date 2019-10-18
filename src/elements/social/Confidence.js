@@ -17,7 +17,7 @@ class Confidence extends React.Component {
         {title: 'APPROVED', field: 'approver',lookup: { 1: 'Dad', 2: 'Mom' },
         },
       ],
-      data: [
+      awesomeConfidence: [
         { requirements: 'List 10 stengths and talk about them with an adult', completed: '', approver: '' },
         { requirements: 'Have a conversation with someone you don’t know very well', completed: '', approver: '' },
         { requirements: 'Talk comfortably to someone of the opposite sex', completed: '', approver: '' },
@@ -27,7 +27,7 @@ class Confidence extends React.Component {
       ],
 
       
-      data2: [
+      epicConfidence: [
         { requirements: 'Earn the Public Speaking merit badge', completed: '', approver: '' },
         { requirements: 'Perform as the lead role in a play', completed: '', approver: '' },
         { requirements: 'Perform a service for someone who does that same service professionally', completed: '', approver: '' },
@@ -51,7 +51,7 @@ class Confidence extends React.Component {
        
       <Breadcrumbs>
         <Link href="/Pages/Home"><HomeIcon /></Link>
-        <Link href="./Social" >
+        <Link href="../Social" >
           <ShareIcon /> </Link>
         <Typography color="textPrimary">Confidence
     </Typography>
@@ -66,17 +66,17 @@ class Confidence extends React.Component {
               // localization={{ header: { actions: 'Pass'}}}
               title="Awesome Level Requirements"
               columns={this.state.columns}
-              data={this.state.data}
+              data={this.state.awesomeConfidence}
               editable={{
                 
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve, reject) => {
                     setTimeout(() => {
                       {
-                        const data = this.state.data;
-                        const index = data.indexOf(oldData);
-                        data[index] = newData;
-                        this.setState({ data }, () => resolve());
+                        const awesomeConfidence = this.state.awesomeConfidence;
+                        const index = awesomeConfidence.indexOf(oldData);
+                        awesomeConfidence[index] = newData;
+                        this.setState({ awesomeConfidence }, () => resolve());
                       }
                       resolve()
                     }, 1000)
@@ -92,17 +92,17 @@ class Confidence extends React.Component {
               options={{search: false, sorting:false, paging: false, actionsColumnIndex: -1 }}
               title="Epic Level Requirements (Pick 3)"
               columns={this.state.columns}
-              data={this.state.data2}
+              data={this.state.epicConfidence}
               editable={{
                 
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve, reject) => {
                     setTimeout(() => {
                       {
-                        const data2 = this.state.data2;
-                        const index = data2.indexOf(oldData);
-                        data2[index] = newData;
-                        this.setState({ data2 }, () => resolve());
+                        const epicConfidence = this.state.epicConfidence;
+                        const index = epicConfidence.indexOf(oldData);
+                        epicConfidence[index] = newData;
+                        this.setState({ epicConfidence }, () => resolve());
                       }
                       resolve()
                     }, 1000)

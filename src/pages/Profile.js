@@ -41,7 +41,7 @@ class Profile extends React.Component {
         <div>
         <Grid container size xs={12} >
         <Grid item>
-        <Card width={100} style={{ minWidth: 375,  minHeight: 500, margin:20, padding:10}}>
+        <Card width={375} style={{ minWidth: 375,  minHeight: 500, margin:20, padding:10}}>
             <CardActionArea>
                 <CardMedia/><AccountCircle/>
                 <CardContent>

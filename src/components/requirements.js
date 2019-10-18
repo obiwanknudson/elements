@@ -1,11 +1,11 @@
 //PHYSICAL REQUIREMENTS
 awesomeStrength: [
-    { requirements: '10 push ups, 30 sit ups, 1 pull-up', completed: '', approver: '' },
-    { requirements: 'Box jump half your height,  broad jump your height', completed: '', approver: '' },
-    { requirements: 'Carry 50 lbs 50 yds', completed: '', approver: '' },
-    { requirements: 'Identify major muscle groups ', completed: '', approver: '' },
-    { requirements: 'Complete balanced strength training routine for a month ', completed: '', approver: '' },
-    { requirements: '1 minute plank', completed: '', approver: '' },
+    { pillar: 'physical', element:'strength', level:'awesome', requirements: '10 push ups, 30 sit ups, 1 pull-up', completed: '', approver: '' },
+    { pillar: 'physical', element:'strength', level:'awesome', requirements: 'Box jump half your height,  broad jump your height', completed: '', approver: '' },
+    { pillar: 'physical', element:'strength', level:'awesome', requirements: 'Carry 50 lbs 50 yds', completed: '', approver: '' },
+    { pillar: 'physical', element:'strength', level:'awesome', requirements: 'Identify major muscle groups ', completed: '', approver: '' },
+    { pillar: 'physical', element:'strength', level:'awesome', requirements: 'Complete balanced strength training routine for a month ', completed: '', approver: '' },
+    { pillar: 'physical', element:'strength', level:'awesome', requirements: '1 minute plank', completed: '', approver: '' },
   ]
 
 epicStrength: [

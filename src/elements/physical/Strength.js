@@ -19,7 +19,7 @@ class Strength extends React.Component {
         {title: 'APPROVED', field: 'approver',lookup: { 1: 'Dad', 2: 'Mom', 3:'Youth Leader', 4:'Sponser' },
         },
       ],
-      data: [
+      awesomeStrength: [
         { requirements: '10 push ups, 30 sit ups, 1 pull-up', completed: '', approver: '' },
         { requirements: 'Box jump half your height,  broad jump your height', completed: '', approver: '' },
         { requirements: 'Carry 50 lbs 50 yds', completed: '', approver: '' },
@@ -29,7 +29,7 @@ class Strength extends React.Component {
       ],
 
       
-      data2: [
+      epicStrength: [
         { requirements: 'Bench press your weight', completed: '', approver: '' },
         { requirements: 'Dunk a basketball', completed: '', approver: '' },
         { requirements: 'Take a self defense course', completed: '', approver: '' },
@@ -54,7 +54,7 @@ class Strength extends React.Component {
        
       <Breadcrumbs>
         <Link href="/Pages/Home"><HomeIcon /></Link>
-        <Link href="./Physical" >
+        <Link href="../Physical" >
           <AccessibilityIcon /> </Link>
         <Typography color="textPrimary">Strength</Typography>
       </Breadcrumbs>
@@ -67,17 +67,17 @@ class Strength extends React.Component {
               // localization={{ header: { actions: 'Pass'}}}
               title="Awesome Level Requirements"
               columns={this.state.columns}
-              data={this.state.data}
+              data={this.state.awesomeStrength}
               editable={{
                 
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve, reject) => {
                     setTimeout(() => {
                       {
-                        const data = this.state.data;
-                        const index = data.indexOf(oldData);
-                        data[index] = newData;
-                        this.setState({ data }, () => resolve());
+                        const awesomeStrength = this.state.awesomeStrength;
+                        const index = awesomeStrength.indexOf(oldData);
+                        awesomeStrength[index] = newData;
+                        this.setState({ awesomeStrength }, () => resolve());
                       }
                       resolve()
                     }, 1000)
@@ -93,17 +93,17 @@ class Strength extends React.Component {
               options={{search: false, sorting:false, paging: false, actionsColumnIndex: -1 }}
               title="Epic Level Requirements (Pick 3)"
               columns={this.state.columns}
-              data={this.state.data2}
+              data={this.state.epicStrength}
               editable={{
                 
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve, reject) => {
                     setTimeout(() => {
                       {
-                        const data2 = this.state.data2;
-                        const index = data2.indexOf(oldData);
-                        data2[index] = newData;
-                        this.setState({ data2 }, () => resolve());
+                        const epicStrength = this.state.data2;
+                        const index = epicStrength.indexOf(oldData);
+                        epicStrength[index] = newData;
+                        this.setState({ epicStrength }, () => resolve());
                       }
                       resolve()
                     }, 1000)

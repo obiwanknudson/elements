@@ -38,7 +38,7 @@ class Spiritual extends React.Component {
           <h1>Spiritual Awesomeness</h1> 
           
           <List>
-            <ListItem button component="a" href= './Faith'>
+            <ListItem button component="a" href= './spiritual/Faith'>
               <ListItemAvatar><Avatar style={{ borderRadius: 0 }}alt="Faith" src={Faith}/></ListItemAvatar>
               <ListItemText>Faith</ListItemText> 
             </ListItem>

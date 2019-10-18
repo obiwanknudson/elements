@@ -19,7 +19,7 @@ class Faith extends React.Component {
         {title: 'APPROVED', field: 'approver',lookup: { 1: 'Dad', 2: 'Mom' },
         },
       ],
-      data: [
+      awesomeFaith: [
         { requirements: 'Be familiar with articles of faith or creed of your church.', completed: '', approver: '' },
         { requirements: 'Know 6 faith scriptures', completed: '', approver: '' },
         { requirements: 'Know how to navigate scriptures and read them regularly.', completed: '', approver: '' },
@@ -29,7 +29,7 @@ class Faith extends React.Component {
       ],
 
       
-      data2: [
+      epicFaith: [
         { requirements: 'Go to a week long church camp (FSY, trek, etc)', completed: '', approver: '' },
         { requirements: 'Attend a church service of 6 different faiths', completed: '', approver: '' },
         { requirements: 'Memorize the creeds or articles of faith of your religion', completed: '', approver: '' },
@@ -52,7 +52,7 @@ class Faith extends React.Component {
        
       <Breadcrumbs>
         <Link href="/Pages/Home"><HomeIcon /></Link>
-        <Link href="./Spiritual" >
+        <Link href="../Spiritual" >
           <FavoriteIcon /></Link>
         <Typography color="textPrimary">Faith</Typography>
       </Breadcrumbs>
@@ -65,17 +65,17 @@ class Faith extends React.Component {
               headeractions= "Pass"
               title="Awesome Level Requirements"
               columns={this.state.columns}
-              data={this.state.data}
+              data={this.state.awesomeFaith}
               editable={{
                 
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve, reject) => {
                     setTimeout(() => {
                       {
-                        const data = this.state.data;
-                        const index = data.indexOf(oldData);
-                        data[index] = newData;
-                        this.setState({ data }, () => resolve());
+                        const awesomeFaith = this.state.awesomeFaith;
+                        const index = awesomeFaith.indexOf(oldData);
+                        awesomeFaith[index] = newData;
+                        this.setState({ awesomeFaith }, () => resolve());
                       }
                       resolve()
                     }, 1000)
@@ -91,17 +91,17 @@ class Faith extends React.Component {
               options={{search: false, sorting:false, paging: false, actionsColumnIndex: -1 }}
               title="Epic Level Requirements (Pick 3)"
               columns={this.state.columns}
-              data={this.state.data2}
+              data={this.state.epicFaith}
               editable={{
                 
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve, reject) => {
                     setTimeout(() => {
                       {
-                        const data2 = this.state.data2;
-                        const index = data2.indexOf(oldData);
-                        data2[index] = newData;
-                        this.setState({ data2 }, () => resolve());
+                        const epicFaith = this.state.epicFaith;
+                        const index = epicFaith.indexOf(oldData);
+                        epicFaith[index] = newData;
+                        this.setState({ epicFaith }, () => resolve());
                       }
                       resolve()
                     }, 1000)

@@ -30,7 +30,7 @@ class Mental extends React.Component {
         <body style={{ margin:16, }}>
         <Breadcrumbs>
         <Link href="/Pages/Home"><HomeIcon /></Link>
-        <Link href="./Mental" >
+        <Link href="./elements/Mental" >
           <SchoolIcon /></Link>
         
       </Breadcrumbs>
@@ -38,7 +38,7 @@ class Mental extends React.Component {
           <h1>Mental Awesomeness</h1> 
 
           <List>
-            <ListItem button component="a" href= './Math'>
+            <ListItem button component="a" href= './mental/Math'>
               <ListItemAvatar><Avatar style={{ borderRadius: 0 }}alt="math" src={Math}/></ListItemAvatar>
               <ListItemText>Math</ListItemText> 
             </ListItem>

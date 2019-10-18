@@ -29,7 +29,7 @@ class Home extends React.Component {
           </Paper>
           
 
-          <Card style={{ minWidth: 375,margin:20, padding:10}}  >
+          <Card style={{ minWidth: 100,margin:20, padding:10}}  >
             <CardActionArea href= '/elements/Physical'>
                 <CardMedia/><AccessibilityIcon />
                 <CardContent>
@@ -53,7 +53,7 @@ class Home extends React.Component {
                 </CardContent>
             </CardActionArea  >
             </Card>
-            <Card style={{ minWidth: 375,margin:20, padding:10}}>
+            <Card style={{ minWidth: 100,margin:20, padding:10}}>
             <CardActionArea href= '/elements/Social'>
                 <CardMedia/><GroupIcon />
                 <CardContent>

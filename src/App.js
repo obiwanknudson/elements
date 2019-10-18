@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
+
 import AppDrawer from './components/AppDrawer';
 import Home from './pages/Home';
 import Login from './pages/login';
@@ -11,7 +12,7 @@ import Spiritual from './elements/Spiritual';
 import Mental from './elements/Mental';
 import Social from './elements/Social';
 
-import Strength from './elements/principles/Strength';
+import Strength from './elements/physical/Strength';
 // import Agility from './elements/Agility';
 // import Dexterity from './elements/Dexterity';
 // import Appearance from './elements/Appearance';
@@ -20,11 +21,11 @@ import Strength from './elements/principles/Strength';
 // import Survival from './elements/Survival';
 // import Nutrition from './elements/Nutrition';
 
-import Faith from './elements/principles/Faith';
+import Faith from './elements/spiritual/Faith';
 
-import Math from './elements/principles/Math';
+import Math from './elements/mental/Math';
 
-import Confidence from './elements/principles/Confidence';
+import Confidence from './elements/social/Confidence';
 
 
 class ElementsApp extends React.Component {
@@ -49,10 +50,10 @@ class ElementsApp extends React.Component {
                 <Route exact path="/elements/Mental" component={Mental} />
                 <Route exact path="/elements/Social" component={Social} />
                
-                <Route exact path="/elements/Strength" component={Strength} />
-                <Route exact path="/elements/Faith" component={Faith} />
-                <Route exact path="/elements/Math" component={Math} />
-                <Route exact path="/elements/Confidence" component={Confidence} />
+                <Route exact path="/elements/physical/Strength" component={Strength} />
+                <Route exact path="/elements/spiritual/Faith" component={Faith} />
+                <Route exact path="/elements/mental/Math" component={Math} />
+                <Route exact path="/elements/social/Confidence" component={Confidence} />
              
              
               </div>         

@@ -36,7 +36,7 @@ class Social extends React.Component {
           <h1>Social Awesomeness</h1> 
           <List>
             
-            <ListItem button component="a" href= './Confidence'>
+            <ListItem button component="a" href= './social/Confidence'>
               <ListItemAvatar><Avatar style={{ borderRadius: 0 }}alt="Confidence" src={Confidence} /></ListItemAvatar>
               <ListItemText>Confidence</ListItemText> 
            </ListItem>

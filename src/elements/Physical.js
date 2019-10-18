@@ -37,7 +37,7 @@ class Physical extends React.Component {
           <h1>Physical Awesomeness</h1> 
              
           <List>
-            <ListItem button component="a" href= '/elements/Strength'>
+            <ListItem button component="a" href= './physical/Strength'>
               <ListItemAvatar><Avatar style={{ borderRadius: 0 }}alt="Strength" src={Strength}/></ListItemAvatar>
               <ListItemText>Strength</ListItemText> 
             </ListItem>
