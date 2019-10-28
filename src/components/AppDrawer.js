@@ -19,6 +19,11 @@ import {School, Group, Home, Favorite, Accessibility} from '@material-ui/icons/'
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+// import withFirebaseAuth from 'react-with-firebase-auth'
+// import * as firebase from 'firebase/app';
+// import 'firebase/auth';
+// import firebaseConfig from '../config/firebase';
+// import firebaseApp from '../config/firebase';
 
 
 const drawerWidth = 240;
@@ -88,12 +93,17 @@ const useStyles = makeStyles(theme => ({
   
 }));
 
+// const firebaseAppAuth = firebaseApp.auth();
+// const providers = {
+//   googleProvider: new firebase.auth.GoogleAuthProvider(),
+// };
+
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [auth] = React.useState(true);
-  // const [auth, setAuth] = React.useState(true); ###Use this instead of the line above when you are ready to setAuth
+  // const [auth] = React.useState(true);
+  const [auth, setAuth] = React.useState(true); 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openAuth = Boolean(anchorEl);
 
@@ -106,9 +116,9 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  // const handleChange = event => {
-  //   setAuth(event.target.checked);
-  // };
+  const handleLogOut = () => {
+    setAuth(false);
+  };
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -117,6 +127,10 @@ export default function PersistentDrawerLeft() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  // const handleLogOut = () => {
+  //   setAnchorEl(null);
+  // };
 
   return (
     <div className={classes.root}>
@@ -167,7 +181,7 @@ export default function PersistentDrawerLeft() {
                 onClose={handleClose}
               >
                 <MenuItem component="a" href= '/Pages/Profile' onClick={handleClose}>Profile</MenuItem>
-                <MenuItem component="a" href= '/Pages/login'onClick={handleClose}>Log Out</MenuItem>
+                <MenuItem component="a" href= '/Pages/login'onClick={handleLogOut}>Log Out</MenuItem>
               </Menu>
             </div>
           )}

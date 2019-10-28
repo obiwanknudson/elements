@@ -12,59 +12,52 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Elements of Awesome
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+class SignIn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      email: '',
+      password: ''
+    };
+    this.firebase = firebase;
+  }
+
+  loginUser(){
+    let email = this.state.email;
+    let password = this.state.password;
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  // var errorCode = error.code;
+  // var errorMessage = error.message;
+  // ...
+});
+  }
+handleEdit = e => {
+  let name = e.target.name;
+  let value = e.target.value;
+  this.setState({[name]: value});
+   console.log(name, value)   
 }
 
-const useStyles = makeStyles(theme => ({
-  '@global': {
-    body: {
-      backgroundColor: theme.palette.common.white,
-    },
-  },
-  paper: {
-    marginTop: theme.spacing(12),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
-export default function SignIn() {
-  const classes = useStyles();
+render(){
+  const classes = makeStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style={{ paddingTop:80, }}>
       <CssBaseline />
-      <div className={classes.paper}>
+      <div className={classes.paper} style={{ display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',}}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} Validate style={{ paddingTop:20}}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -100,14 +93,14 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          <Grid container>
+          <Grid container style={{ paddingTop:20}}>
             <Grid item xs>
               <Link href="#" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="./signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -115,8 +108,17 @@ export default function SignIn() {
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        <Link color="inherit" href="https://material-ui.com/">
+          Elements of Awesome
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
       </Box>
     </Container>
   );
 }
+}
+export default SignIn;

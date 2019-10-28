@@ -11,12 +11,27 @@ import Table from '@material-ui/core/Table';
 import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Grid } from '@material-ui/core';
-
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+    };
+    this.firebase = firebase;
+  }
+
   
   render() {
-    // const classes = useStyles();
+    const {
+        user,
+        signOut,
+      } = this.props;
     
 
     return (
@@ -25,15 +40,24 @@ class Profile extends React.Component {
         <body style={{ margin:20,}}>
           <h1>Profile</h1> 
           
-          <Card style={{ minWidth: 275, margin:20, padding:10}}>
+          <Card  href="./login" style={{ minWidth: 275, margin:20, padding:10}}>
             <CardActionArea>
                 <CardMedia/><AccountCircle/>
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    Person McUserface
+                
+                <div>{user 
+                  ? <p>Hello, {user.displayName}</p>
+                  : <p>Please sign in.</p>
+              }
+              {user
+                  ? <button onClick={signOut}>Sign out</button>
+                  : <button href="./login"> Sign in </button>
+              }
+              </div>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Becoming awesomeness since 10/1/2019
+                    Becoming awesome since 10/1/2019
                 </Typography>
                 </CardContent>
             </CardActionArea>

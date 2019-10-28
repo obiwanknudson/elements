@@ -6,27 +6,23 @@ import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
 import SchoolIcon from '@material-ui/icons/School';
 import { Check, Edit, Clear }from '@material-ui/icons';
-import firebase from '../../config/firebase';
+import 'firebase/firestore';
 
 
-// let requirements = []
-let db = firebase.firestore()
 
-// let awesomeMath = db.get.requirements(snapshot)
-  
+//*
 
-
-var updateReq = db.collection("users").doc("requirements");
-updateReq.set({
+// getReq.get()
+// loadReq.update({
     
-    awesomeMath: [
-      { requirements: 'Add and subtract 3 digits without a calculator', completed: '', approver: '' },
-      { requirements: 'Memorize times tables to 12', completed: '', approver: '' },
-      { requirements: 'Understand basic algebra (unit conversion and solving for x)', completed: '', approver: '' },
-      { requirements: 'Calculate the area of a rectangle, triangle and circle and the volume of a cylinder, cube and pyramid', completed: '', approver: '' },
-      { requirements: 'Calculate percentage (for tips or discounts)', completed: '', approver: '' },
-      { requirements: 'Know the Order of Operations', completed: '', approver: '' },
-    ],
+//     awesomeMath: [
+//       { requirements: 'Add and subtract 3 digits without a calculator', completed: '', approver: '' },
+//       { requirements: 'Memorize times tables to 12', completed: '', approver: '' },
+//       { requirements: 'Understand basic algebra (unit conversion and solving for x)', completed: '', approver: '' },
+//       { requirements: 'Calculate the area of a rectangle, triangle and circle and the volume of a cylinder, cube and pyramid', completed: '', approver: '' },
+//       { requirements: 'Calculate percentage (for tips or discounts)', completed: '', approver: '' },
+//       { requirements: 'Know the Order of Operations', completed: '', approver: '' },
+//     ],
     
 //     epicMath: [
 //       { requirements: 'Create a video of yourself teaching a math concept', completed: '', approver: '' },
@@ -41,11 +37,13 @@ updateReq.set({
 //       { requirements: 'Win a regional Math Olympiad', completed: '', approver: '' },
 //       { requirements: 'Be awarded a math related grant', completed: '', approver: '' },
 //       ]
-});
+// });
 
 class Math extends React.Component {
   constructor(props) {
     super(props);
+    
+
     this.state = {
       columns: [
         {title: 'REQUIREMENT', field: 'requirements', editable: 'never' },
@@ -63,8 +61,8 @@ class Math extends React.Component {
         { requirements: 'Calculate the area of a rectangle, triangle and circle and the volume of a cylinder, cube and pyramid', completed: '', approver: '' },
         { requirements: 'Calculate percentage (for tips or discounts)', completed: '', approver: '' },
         { requirements: 'Know the Order of Operations', completed: '', approver: '' },
-      ],
-
+      ]
+,
       
       epicMath: [
         { requirements: 'Create a video of yourself teaching a math concept', completed: '', approver: '' },
@@ -83,9 +81,9 @@ class Math extends React.Component {
   }
   
   render() {
+    
     return (
      <div className="App" style={{ paddingTop:60}}>
-
         <body style={{ margin:20 }}>
        
       <Breadcrumbs>
@@ -94,11 +92,10 @@ class Math extends React.Component {
           <SchoolIcon /></Link>
         <Typography color="textPrimary">Math</Typography>
       </Breadcrumbs>
-
       <div style={{ paddingTop:20}}>
               <h1> Math</h1>
-      <MaterialTable 
-             icons={{ Check: Check, Edit: Edit, Clear:Clear }}
+             
+      <MaterialTable icons={{ Check: Check, Edit: Edit, Clear:Clear }}
               options={{search: false, sorting:false, paging: false, actionsColumnIndex: -1 }}
               title="Awesome Level Requirements"
               columns={this.state.columns}
@@ -114,30 +111,17 @@ class Math extends React.Component {
                         const awesomeMath = this.state.awesomeMath;
                         const index = awesomeMath.indexOf(oldData);
                         awesomeMath[index] = newData;
-                        this.setState({ awesomeMath }, () => resolve());
-                      }
+                        this.setState({ awesomeMath }, 
+                                                 
+                          () => resolve());
+                    }
                       resolve()
-                    }, 1000);
-                    db.collection("users").doc("requirements").update({
-                      "awesomeMath[index].completed": newData,
-                      "awesomeMath[index].approver": newData
+                    }, 1000)
                   })
-                })
-
-
-.then(function() {
-    console.log("Document successfully updated!");
-    
-
-                  }),
-               
-              }}
-            />
-
+                }}/>
 <div style={{ paddingTop:20}}>
 
-        <MaterialTable 
-             icons={{ Check: Check, Edit: Edit, Clear:Clear }}
+        <MaterialTable icons={{ Check: Check, Edit: Edit, Clear:Clear }}
               options={{search: false, sorting:false, paging: false, actionsColumnIndex: -1 }}
               title="Epic Level Requirements (Pick 3)"
               columns={this.state.columns}
@@ -155,16 +139,60 @@ class Math extends React.Component {
                       }
                       resolve()
                     }, 1000)
+                    
                   }),
-               
-              }}
-            />
 
+
+               
+              }} /></div>
         </div>
-        </div>
+        
         </body>
       </div>
     );
+  }
+
+
+  
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let approver = this.refs.approver.value;
+    let completed = this.refs.completed.value;
+    let uid = this.refs.uid.value;
+  
+    if (uid && approver && completed){
+      const { developers } = this.state;
+      const devIndex = developers.findIndex(data => {
+        return data.uid === uid 
+      });
+      developers[devIndex].approver = approver;
+      developers[devIndex].completed = completed;
+      this.setState({ developers });
+    }
+    else if (approver && completed ) {
+      const uid = new Date().getTime().toString();
+      const { developers } = this.state;
+      developers.push({ uid, approver, completed })
+      this.setState({ developers });
+    }
+  
+    this.refs.approver.value = '';
+    this.refs.completed.value = '';
+    this.refs.uid.value = '';
+  }
+  
+  removeData = (developer) => {
+    const { developers } = this.state;
+    const newState = developers.filter(data => {
+      return data.uid !== developer.uid;
+    });
+    this.setState({ developers: newState });
+  }
+  
+  updateData = (developer) => {
+    this.refs.uid.value = developer.uid;
+    this.refs.approver.value = developer.approver;
+    this.refs.completed.value = developer.completed;
   }
 }
 export default Math;
