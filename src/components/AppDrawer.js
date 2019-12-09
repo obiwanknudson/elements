@@ -15,15 +15,12 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import {School, Group, Home, Favorite, Accessibility} from '@material-ui/icons/';
+import {School, Group, Home, Favorite, Accessibility, } from '@material-ui/icons/';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-// import withFirebaseAuth from 'react-with-firebase-auth'
 // import * as firebase from 'firebase/app';
-// import 'firebase/auth';
-// import firebaseConfig from '../config/firebase';
-// import firebaseApp from '../config/firebase';
+import 'firebase/auth';
 
 
 const drawerWidth = 240;
@@ -46,6 +43,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    background: 'black',
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -94,9 +92,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 // const firebaseAppAuth = firebaseApp.auth();
-// const providers = {
-//   googleProvider: new firebase.auth.GoogleAuthProvider(),
-// };
+
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
@@ -111,19 +107,15 @@ export default function PersistentDrawerLeft() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   const handleLogOut = () => {
     setAuth(false);
   };
-
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };

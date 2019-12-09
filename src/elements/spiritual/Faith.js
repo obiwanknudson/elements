@@ -6,8 +6,7 @@ import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Check, Edit, Clear }from '@material-ui/icons';
-
-
+import { awesomeFaith, epicFaith } from '../../components/reqs'
 
 class Faith extends React.Component {
   constructor(props) {
@@ -19,28 +18,8 @@ class Faith extends React.Component {
         {title: 'APPROVED', field: 'approver',lookup: { 1: 'Dad', 2: 'Mom' },
         },
       ],
-      awesomeFaith: [
-        { requirements: 'Be familiar with articles of faith or creed of your church.', completed: '', approver: '' },
-        { requirements: 'Know 6 faith scriptures', completed: '', approver: '' },
-        { requirements: 'Know how to navigate scriptures and read them regularly.', completed: '', approver: '' },
-        { requirements: 'Be familiar with main tenets of world religions list ', completed: '', approver: '' },
-        { requirements: 'Testify to others about your beliefs ', completed: '', approver: '' },
-        { requirements: 'Pay tithing or offering to your church', completed: '', approver: '' },
-      ],
-
-      
-      epicFaith: [
-        { requirements: 'Go to a week long church camp (FSY, trek, etc)', completed: '', approver: '' },
-        { requirements: 'Attend a church service of 6 different faiths', completed: '', approver: '' },
-        { requirements: 'Memorize the creeds or articles of faith of your religion', completed: '', approver: '' },
-        { requirements: 'Teach Sunday School for 6 months', completed: '', approver: '' },
-        { requirements: 'Memorize 12 scriptures about faith ', completed: '', approver: '' },
-        { requirements: 'Practice the five pillars of Islam', completed: '', approver: '' },
-        { requirements: 'Graduate from Seminary', completed: '', approver: '' },
-        { requirements: 'Complete Catholic Catechism ', completed: '', approver: '' },
-        { requirements: 'Read 2 books of scripture cover to cover twice ', completed: '', approver: '' },
-        { requirements: 'Earn the Awesome Pin for every principle of the Spiritual pillar.', completed: '', approver: '' },
-         ]
+      awesomeFaith: awesomeFaith,
+      epicFaith: epicFaith
     }
   }
   

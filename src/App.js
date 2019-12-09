@@ -6,11 +6,9 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Profile from './pages/Profile';
 import config from './config/firebase';
-
 // import firebaseApp from './config/firebase';
 import 'firebase/firestore';
 import * as firebase from 'firebase/app';
-
 
 import Physical from './elements/Physical';
 import Spiritual from './elements/Spiritual';
@@ -48,23 +46,17 @@ class ElementsApp extends React.Component {
   constructor(props){
     super(props);
     firebase.initializeApp(config);
-// const providers = {
-//   googleProvider: new firebase.auth.GoogleAuthProvider(),
-// };
+
 
     this.state = {
       developers: [],
-      
     }
   }
-  
-  
 
   writeUserData = () => {
     firebase.database().ref('/').set(this.state);
     console.log('DATA SAVED');
-  }
-  
+  } 
   getUserData = () => {
     let ref = firebase.database().ref('/');
     ref.on('value', snapshot => {
@@ -73,25 +65,17 @@ class ElementsApp extends React.Component {
     });
     console.log('DATA RETRIEVED');
   }
-
-
   render() {
-     
-
-        return (
+    return (
         <div className="App">
-         
          <AppDrawer/>
-         
-  
           <Router>
               <div className="content">
                 <Route exact path="/pages/Home" component={Home} />
                 <Route exact path="/pages/Profile" component={Profile} />
                 <Route exact path="/pages/Signup" component={Signup} />
                 <Route exact path="/pages/Login" component={Login} />
-
-
+                
                 <Route exact path="/elements/Physical" component={Physical} />
                 <Route exact path="/elements/Spiritual" component={Spiritual} />
                 <Route exact path="/elements/Mental" component={Mental} />
@@ -110,12 +94,7 @@ class ElementsApp extends React.Component {
               </div>         
           </Router>
         </div>
-
-        
       );
-      
     }
 }
-  export default ElementsApp;
-  
-
+export default ElementsApp;

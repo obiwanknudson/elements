@@ -57,7 +57,7 @@ render(){
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} Validate style={{ paddingTop:20}}>
+        <form className={classes.form} onSubmit={this.loginUser()} style={{ paddingTop:20}}>
           <TextField
             variant="outlined"
             margin="normal"

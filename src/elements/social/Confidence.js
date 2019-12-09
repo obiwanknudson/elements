@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import HomeIcon from '@material-ui/icons/Home';
 import ShareIcon from '@material-ui/icons/Group';
 import { Check, Edit, Clear }from '@material-ui/icons';
+import { awesomeConfidence, epicConfidence } from '../../components/reqs'
 
 class Confidence extends React.Component {
   constructor(props) {
@@ -17,29 +18,8 @@ class Confidence extends React.Component {
         {title: 'APPROVED', field: 'approver',lookup: { 1: 'Dad', 2: 'Mom' },
         },
       ],
-      awesomeConfidence: [
-        { requirements: 'List 10 stengths and talk about them with an adult', completed: '', approver: '' },
-        { requirements: 'Have a conversation with someone you don’t know very well', completed: '', approver: '' },
-        { requirements: 'Talk comfortably to someone of the opposite sex', completed: '', approver: '' },
-        { requirements: 'Make a resume ', completed: '', approver: '' },
-        { requirements: 'Haggle a price or complain to a manager to get a better price ', completed: '', approver: '' },
-        { requirements: 'Know how to drive a stickshift', completed: '', approver: '' },
-      ],
-
-      
-      epicConfidence: [
-        { requirements: 'Earn the Public Speaking merit badge', completed: '', approver: '' },
-        { requirements: 'Perform as the lead role in a play', completed: '', approver: '' },
-        { requirements: 'Perform a service for someone who does that same service professionally', completed: '', approver: '' },
-        { requirements: 'Sell something door to door for more than one full day', completed: '', approver: '' },
-        { requirements: 'Tutor another student in a subject for a semester', completed: '', approver: '' },
-        { requirements: 'Perform an original work on stage (song, poem, etc.)', completed: '', approver: '' },
-        { requirements: 'Earn Epic Pins for First Aid and Survival', completed: '', approver: '' },
-        { requirements: 'Host a radio show', completed: '', approver: '' },
-        { requirements: 'Be part of a flash mob of more than 100 people', completed: '', approver: '' },
-        { requirements: 'Live with somewhere without your family for 3 months', completed: '', approver: '' },
-        { requirements: 'Perform a solo in a musical concert', completed: '', approver: '' },
-      ]
+      awesomeConfidence: awesomeConfidence,
+      epicConfidence: epicConfidence 
     }
   }
   

@@ -38,7 +38,7 @@ class SignUp extends React.Component {
       console.log(errorCode);
       console.log(errorMessage);
     });
-    console.log(password)
+   
   }
 
   handleEdit = e => {
