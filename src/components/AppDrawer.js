@@ -173,7 +173,7 @@ export default function PersistentDrawerLeft() {
                 onClose={handleClose}
               >
                 <MenuItem component="a" href= '/Pages/Profile' onClick={handleClose}>Profile</MenuItem>
-                <MenuItem component="a" href= '/Pages/login'onClick={handleLogOut}>Log Out</MenuItem>
+                <MenuItem component="a" href= '/Pages/login'onClick={handleLogOut}>Sign In</MenuItem>
               </Menu>
             </div>
           )}

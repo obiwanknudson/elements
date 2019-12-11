@@ -1,4 +1,6 @@
 import React from 'react';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -22,6 +24,7 @@ class SignUp extends React.Component {
     this.state = { 
       firstName: '',
       lastName: '',
+      userType:'',
       email: '',
       password: ''
     };
@@ -117,6 +120,22 @@ class SignUp extends React.Component {
                 onChange={this.handleEdit}
                 autoComplete="current-password"
               />
+            </Grid>
+            <Grid item xs={12}>
+              <Select
+                variant="outlined"
+                required
+                fullWidth
+                name="userType"
+                label="What do you want to do?"
+                id="userType"
+                value={this.state.userType}
+                onChange={this.handleEdit}
+              >
+              <MenuItem value={1}>I am a participant</MenuItem>
+              <MenuItem value={2}>I am a sponsor</MenuItem>
+          
+              </Select>
             </Grid>
            
           </Grid>

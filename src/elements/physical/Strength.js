@@ -21,8 +21,6 @@ class Strength extends React.Component {
       ],
       awesomeStrength: awesomeStrength,
       epicStrength: epicStrength,
-
-      
     }
   }
   

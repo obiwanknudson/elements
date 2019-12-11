@@ -10,12 +10,12 @@ import 'firebase/firestore';
 import { awesomeMath, epicMath } from '../../components/reqs'
 
 
-//*
+
 
 // getReq.get()
 // loadReq.update({
     
-//     awesomeMath: [
+
 
 
 class Math extends React.Component {
