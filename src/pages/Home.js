@@ -10,10 +10,11 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import {earth} from './images/earth.jpg'
-
-
-
+import Awesome from './images/fire.jpg';
+import Earth from './images/earth.jpg';
+import Fire from './images/fire2.jpg';
+import Air from './images/air.jpg';
+import Water from './images/water.jpg';
 
 
 
@@ -23,77 +24,83 @@ class Home extends React.Component {
   
 
     return (
-      <div className="App" style={{ paddingTop:60, }} align="center">
-
-        <body style={{ margin:20,}}>
-          
-          
-          
-          <h1>Be Ye Therefore Awesome</h1> 
-          <p style={{ padding:10,margin:10}}>
+      <div className="App" align="center">
+        <img alt='Earth' src={Awesome} style={{width: 'auto', height:400 }}/> 
+        <h1 style={{ align: 'left', margin:-60, color: 'white'}}>Be Ye Therefore Awesome</h1> 
+        <body style={{ margin:60,}}>
+        <p style={{ padding:10,margin:40}}>
           Elements of Awesome is an achievement system for teens to set goals and become better versions of themselves.  
         </p>
         <p style={{ padding:10,margin:10}}>
          The system breaks down character attributes into four pillars:
         </p>
-          
-        
-            <Grid container spacing={4}>
-        <Grid item xs> 
-          <Card style={{ display: 'flex', maxWidth: 345, margin:10, padding:10}}  >
-            <CardActionArea href= '/elements/Physical'>
-                <CardMedia 
-                height="140"
-                image={earth}
-                title="Earth"/>
-                <CardContent>
-                <h1>Earth</h1>
-                <h3>(Physical)</h3>
-                </CardContent>
-            </CardActionArea>
-            </Card>
-</Grid>
-<Grid item xs> 
-            <Card style={{ maxWidth: 345,margin:10, padding:10}}>
-            <CardActionArea href= '/elements/Spiritual'>
-                <CardMedia/>
-                <CardContent>
-                <h1>Fire</h1>
-                <h3>(Spiritual)</h3>
-                </CardContent>
-            </CardActionArea>
-            </Card>
-            </Grid>
-<Grid item xs> 
-            <Card style={{ maxWidth: 345, margin:10, padding:10}}>
-            <CardActionArea href= '/elements/Mental'>
-                <CardMedia/>
-                <CardContent>
-                    <h1>Air</h1>
-                    <h3>(Mental)</h3>
-                </CardContent>
-            </CardActionArea  >
-            </Card>
-            </Grid>
-<Grid item xs> 
-            <Card style={{ maxWidth: 345,margin:10, padding:10}}>
-            <CardActionArea href= '/elements/Social'>
-                <CardMedia/>
-                <CardContent>
-                     <h1>Water</h1>
-                     <h3>(Social)</h3>
-                </CardContent>
-            </CardActionArea>
-            </Card>  
-            </Grid>
-        </Grid> 
 
-         <p style={{ padding:10,margin:10}}>
-         Within each pillare there are 9 principles.  Each principle as a series of requirements to complete to rank up.
-        </p>   
-        <Grid container spacing={3}>
+        <Grid container spacing={1}>
+          <Grid item xs> 
+            <Card style={{ minWidth: 200, maxWidth: 345, margin:10, padding:0}}  >
+              <CardActionArea href= '/elements/Physical'>
+                  <CardMedia 
+                  component="img"
+                  height='140'
+                  title="Physical"
+                  image={Earth} />
+                  <CardContent> 
+                  <h3>Earth (Physical)</h3>
+                  </CardContent>
+              </CardActionArea>
+              </Card>
+            </Grid>
+            <Grid item xs> 
+              <Card style={{ minWidth: 200, maxWidth: 345,margin:10, padding:0}}>
+                <CardActionArea href= '/elements/Spiritual'>
+                    <CardMedia 
+                    component="img"
+                    height='140'
+                    title="Spiritual"
+                    image={Fire}/>
+                    <CardContent>
+                    <h3>Fire (Spiritual)</h3>
+                    </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+
+            <Grid item xs> 
+              <Card style={{ minWidth: 200, maxWidth: 345, margin:10, padding:0}}>
+                <CardActionArea href= '/elements/Mental'>
+                    <CardMedia
+                    component="img"
+                    height='140'
+                    title="Mental"
+                    image={Air}/>
+                    <CardContent>
+                        <h3>Air (Mental)</h3>
+                    </CardContent>
+                </CardActionArea  >
+              </Card>
+            </Grid>
+
+            <Grid item xs> 
+              <Card style={{ minWidth: 200, maxWidth: 345,margin:10, padding:0}}>
+                <CardActionArea href= '/elements/Social'>
+                    <CardMedia
+                    component="img"
+                    height='140'
+                    title="Social"
+                    image={Water}/>
+                    <CardContent>
+                        <h3>Water (Social)</h3>
+                    </CardContent>
+                </CardActionArea>
+              </Card>  
+            </Grid>
+         </Grid> 
+
+      <p style={{ padding:10,margin:10}}>
+      Within each pillare there are 9 principles.  Each principle has a series of requirements to complete to rank up.</p>   
+      <Grid container spacing={3}>
         <Grid item xs>       
-          <img alt='Table of Elements' src={TableColor} style={{paddingTop:80,width:400}}/>
+          <img alt='Table of Elements' src={TableColor} style={{paddingTop:60,width:400}}/>
           
         </Grid>
         </Grid>

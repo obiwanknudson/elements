@@ -24,7 +24,7 @@ class SignUp extends React.Component {
     this.state = { 
       firstName: '',
       lastName: '',
-      userType:'',
+      userType:'I am a...',
       email: '',
       password: ''
     };
@@ -127,13 +127,14 @@ class SignUp extends React.Component {
                 required
                 fullWidth
                 name="userType"
-                label="What do you want to do?"
+                defaultValue={0}
+                label="I am a"
                 id="userType"
                 value={this.state.userType}
                 onChange={this.handleEdit}
               >
-              <MenuItem value={1}>I am a participant</MenuItem>
-              <MenuItem value={2}>I am a sponsor</MenuItem>
+              <MenuItem value={0}>Participant</MenuItem>
+              <MenuItem value={1}>Sponsor</MenuItem>
           
               </Select>
             </Grid>

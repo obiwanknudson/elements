@@ -16,13 +16,6 @@ import Mental from './elements/Mental';
 import Social from './elements/Social';
 
 import Strength from './elements/physical/Strength';
-// import Agility from './elements/Agility';
-// import Dexterity from './elements/Dexterity';
-// import Appearance from './elements/Appearance';
-// import Poise from './elements/Poise';
-// import FirstAid from './elements/FirstAid';
-// import Survival from './elements/Survival';
-// import Nutrition from './elements/Nutrition';
 
 import Faith from './elements/spiritual/Faith';
 
