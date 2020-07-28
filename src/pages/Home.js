@@ -1,11 +1,7 @@
 import React from 'react';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import TableColor from './TableColor.png';
 import Grid from '@material-ui/core/Grid';
-// import Paper from '@material-ui/core/Paper';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-// import AccessibilityIcon from '@material-ui/icons/Accessibility';
-// import SchoolIcon from '@material-ui/icons/School';
-// import GroupIcon from '@material-ui/icons/Group';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,18 +13,26 @@ import Air from './images/air.jpg';
 import Water from './images/water.jpg';
 
 
-
 class Home extends React.Component {
   
   render() {
-  
-
     return (
-      <div className="App" align="center">
-        <img alt='Earth' src={Awesome} style={{width: 'auto', height:400 }}/> 
-        <h1 style={{ align: 'left', margin:-60, color: 'white'}}>Be Ye Therefore Awesome</h1> 
-        <body style={{ margin:60,}}>
-        <p style={{ padding:10,margin:40}}>
+     
+      <div className="App" align="center" style={{backgroundImage:{Awesome} }}>
+
+
+       <body style={{ margin:40, }}>
+        <Breadcrumbs>
+              </Breadcrumbs>
+
+      
+            <h1 style={{ align: 'left', margin:30, color: 'black'}}>Be Ye Therefore Awesome</h1> 
+       
+        
+        
+        {/* <img alt='Earth' src={Awesome} style={{width: 'auto', height:400 }}/>  */}
+        
+        <p style={{ padding:10,margin:10}}>
           Elements of Awesome is an achievement system for teens to set goals and become better versions of themselves.  
         </p>
         <p style={{ padding:10,margin:10}}>
@@ -104,14 +108,7 @@ class Home extends React.Component {
           
         </Grid>
         </Grid>
-        <Card style={{ display: 'flex', Width: 100, margin:10, padding:10}}  >
-            <CardActionArea href= '/Pages/signup'>
-                <CardMedia/>
-                <CardContent>
-                <h1>Sign Up</h1>
-                </CardContent>
-            </CardActionArea>
-            </Card>
+        
             <Card style={{  display: 'flex',Width: 50, margin:10, padding:10}}  >
             <CardActionArea href= 'https://www.amazon.com/dp/1699871310/ref=cm_sw_em_r_mt_dp_U_a0SZDbXW3MYBR'>
                 <CardMedia/>

@@ -8,29 +8,12 @@ import Avatar from '@material-ui/core/Avatar';
 import { Grid } from '@material-ui/core';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import Earth from './images/earth2.jpg';
-import Fire from './images/fire.jpg';
-import Air from './images/air2.jpg';
-import Water from './images/water2.jpg';
+import Earth from './images/Physical.svg';
+import Fire from './images/Spiritual.svg';
+import Air from './images/Mental.svg';
+import Water from './images/Social.svg';
 import { Chart } from "react-google-charts";
 
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     // User is signed in.
-//     var displayName = user.displayName;
-
-//     var email = user.email;
-//     var emailVerified = user.emailVerified;
-//     var photoURL = user.photoURL;
-//     var isAnonymous = user.isAnonymous;
-//     var uid = user.uid;
-//     var providerData = user.providerData;
-//     // ...
-//   } else {
-//     // User is signed out.
-//     // ...
-//   }
-// });
 
 
 class Profile extends React.Component {
@@ -77,67 +60,10 @@ class Profile extends React.Component {
             </CardActionArea>
             </Card>
           <Grid container spacing={1}>
-        <Grid item xs> 
-          <Card style={{ minWidth: 200, maxWidth: 345, margin:10, padding:0}}  >
-           
-            <CardActionArea href= '/elements/Physical'>
-                <CardMedia 
-                component="img"
-                height='140'
-                title="Physical"
-                image={Earth}
-                />
-                <CardContent> 
-                <h3>Earth (Physical)</h3>
-                </CardContent>
-            </CardActionArea>
-            </Card>
-</Grid>
-<Grid item xs> 
-            <Card style={{ minWidth: 200, maxWidth: 345,margin:10, padding:0}}>
-            <CardActionArea href= '/elements/Spiritual'>
-                <CardMedia 
-                component="img"
-                height='140'
-                title="Spiritual"
-                image={Fire}/>
-                <CardContent>
-                <h3>Fire (Spiritual)</h3>
-               
-                </CardContent>
-            </CardActionArea>
-            </Card>
-            </Grid>
+       
 
-<Grid item xs> 
-            <Card style={{ minWidth: 200, maxWidth: 345, margin:10, padding:0}}>
-            <CardActionArea href= '/elements/Mental'>
-                <CardMedia
-                component="img"
-                height='140'
-                title="Mental"
-                image={Air}/>
-                <CardContent>
-                    <h3>Air (Mental)</h3>
-                </CardContent>
-            </CardActionArea  >
-            </Card>
-            </Grid>
 
-<Grid item xs> 
-            <Card style={{ minWidth: 200, maxWidth: 345,margin:10, padding:0}}>
-            <CardActionArea href= '/elements/Social'>
-                <CardMedia
-                component="img"
-                height='140'
-                title="Social"
-                image={Water}/>
-                <CardContent>
-                     <h3>Water (Social)</h3>
-                </CardContent>
-            </CardActionArea>
-            </Card>  
-            </Grid>
+
         </Grid> 
         <Card style={{margin:10, padding:0}}>
             <CardActionArea href= '/elements/Physical'>                

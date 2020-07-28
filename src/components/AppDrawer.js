@@ -19,7 +19,12 @@ import {School, Group, Home, Favorite, Accessibility, } from '@material-ui/icons
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-// import * as firebase from 'firebase/app';
+// import Grid from '@material-ui/core/Grid';
+// import Card from '@material-ui/core/Card';
+// import CardActionArea from '@material-ui/core/CardActionArea';
+// import CardContent from '@material-ui/core/CardContent';
+// import CardMedia from '@material-ui/core/CardMedia';
+import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
 
@@ -99,7 +104,7 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   // const [auth] = React.useState(true);
-  const [auth, setAuth] = React.useState(true); 
+  const [auth, setAuth] = React.useState(false); 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openAuth = Boolean(anchorEl);
 
@@ -112,7 +117,9 @@ export default function PersistentDrawerLeft() {
   };
   const handleLogOut = () => {
     setAuth(false);
+    firebase.auth().signOut();
   };
+
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -142,7 +149,8 @@ export default function PersistentDrawerLeft() {
             className={clsx(classes.menuButton, open && classes.hide)}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap component="a" href= '/Pages/Home' style={{color: 'white',
+  textDecoration: 'none'}}>
             Elements of Awesome
           </Typography>
           {auth && (
@@ -173,7 +181,7 @@ export default function PersistentDrawerLeft() {
                 onClose={handleClose}
               >
                 <MenuItem component="a" href= '/Pages/Profile' onClick={handleClose}>Profile</MenuItem>
-                <MenuItem component="a" href= '/Pages/login'onClick={handleLogOut}>Sign In</MenuItem>
+                <MenuItem component="a" href= '/Pages/login'onClick={handleLogOut}>Sign Out</MenuItem>
               </Menu>
             </div>
           )}
@@ -196,9 +204,9 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-        <ListItem button component="a" href= '/Pages/Home'>
+        <ListItem button component="a" href= '/Pages/Profile'>
               <ListItemIcon><Home /></ListItemIcon>
-              <ListItemText>Awesomeness</ListItemText> 
+              <ListItemText>Dashboard</ListItemText> 
             </ListItem>
             <ListItem button component="a" href= '/elements/Physical'>
               <ListItemIcon><Accessibility /></ListItemIcon>
@@ -219,7 +227,26 @@ export default function PersistentDrawerLeft() {
         </List>
         
       </Drawer>
-      
+      {/* <Grid container spacing={1}>
+     <Grid item xs>
+      <Card style={{ display: 'flex', Width: 100, margin:10, padding:10}}  >
+            <CardActionArea href= '/Pages/login'>
+                <CardMedia/>
+                <CardContent>
+                <h1>Sign In</h1>
+                </CardContent>
+            </CardActionArea>
+            </Card>
+            </Grid>
+            <Grid item xs>
+            <Card style={{ display: 'flex', Width: 100, margin:10, padding:10}}  >
+            <CardActionArea href= '/Pages/signup'>
+                <CardMedia/>
+                <CardContent>
+                <h1>Sign Up</h1>
+                </CardContent>
+            </CardActionArea>
+            </Card></Grid></Grid> */}
     </div>
   );
 }

@@ -25,24 +25,34 @@ class SignIn extends React.Component {
     this.firebase = firebase;
   }
 
-  loginUser(){
+  handleEdit = e => {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState({[name]: value});
+     console.log(name, value)   
+  }
+
+  loginUser = () => {
+    // this.handleEdit(e);
+    // console.log("start, state is: ", this, this.state);
+    console.dir(this);
+    const [auth, setAuth] = React.useState(true);
     let email = this.state.email;
     let password = this.state.password;
+    console.log('here', email, password);
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
-  // var errorCode = error.code;
-  // var errorMessage = error.message;
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log("errer: login",errorCode, errorMessage)
   // ...
 });
+
   }
-handleEdit = e => {
-  let name = e.target.name;
-  let value = e.target.value;
-  this.setState({[name]: value});
-   console.log(name, value)   
-}
+
 
 render(){
+ 
   const classes = makeStyles();
 
   return (
@@ -57,7 +67,7 @@ render(){
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} onSubmit={this.loginUser()} style={{ paddingTop:20}}>
+        <form className={classes.form} onSubmit={this.loginUser} style={{ paddingTop:20}}>
           <TextField
             variant="outlined"
             margin="normal"

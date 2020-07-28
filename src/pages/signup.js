@@ -1,6 +1,4 @@
 import React from 'react';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,9 +10,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
 
 
 
@@ -22,26 +20,13 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      firstName: '',
-      lastName: '',
+      firstName: 'Tyler',
+      lastName: 'Peek',
       userType:'I am a...',
-      email: '',
-      password: ''
+      email: 'tyler@peek.rocks',
+      password: '123456'
     };
     this.firebase = firebase;
-  }
-
-  createUser() {
-    let email = this.state.email;
-    let password = this.state.password;
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-    });
-   
   }
 
   handleEdit = e => {
@@ -50,11 +35,32 @@ class SignUp extends React.Component {
     this.setState({[name]: value});
      console.log(name, value)     
   }
+  
+  createUser = () => {
+    let email = this.state.email;
+    let password = this.state.password;
+    console.log(`submitting user ${email} and ps ${password}`);
+    
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      console.log('errerererer')
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log('ErrorCode CreateUser', errorCode);
+      console.log(errorMessage);
+    });
+    // const [auth, setAuth] = React.useState(true); 
+  }
+
+  
 
   render() {
-  const classes = makeStyles();
+  const classes = makeStyles({});
+  
+  
+
   return (
-    <Container component="main" maxWidth="xs" style={{ paddingTop:80, }}>
+    <Container component="main" maxWidth="xs" style={{ paddingTop:100, }}>
       <CssBaseline />
       <div className={classes.paper} style={{ display: 'flex',
     flexDirection: 'column',
@@ -65,7 +71,9 @@ class SignUp extends React.Component {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} style={{ paddingTop:20}} noValidate onSubmit={this.createUser()}>
+        <form className={classes.form} style={{ paddingTop:20}} noValidate 
+        //  onSubmit={this.createUser}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -121,26 +129,10 @@ class SignUp extends React.Component {
                 autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
-              <Select
-                variant="outlined"
-                required
-                fullWidth
-                name="userType"
-                defaultValue={0}
-                label="I am a"
-                id="userType"
-                value={this.state.userType}
-                onChange={this.handleEdit}
-              >
-              <MenuItem value={0}>Participant</MenuItem>
-              <MenuItem value={1}>Sponsor</MenuItem>
-          
-              </Select>
-            </Grid>
            
           </Grid>
           <Button
+          onClick={this.createUser}
             type="submit"
             fullWidth
             variant="contained"
@@ -150,6 +142,7 @@ class SignUp extends React.Component {
           >
             Sign Up
           </Button>
+          
           <Grid container justify="flex-end" style={{ paddingTop:20}}>
             <Grid item>
               <Link href="./login" variant="body2">
@@ -166,6 +159,7 @@ class SignUp extends React.Component {
             Elements of Awesome
           </Link>{' '}
           {new Date().getFullYear()}
+        
           {'.'}
         </Typography>
       </Box>
@@ -174,8 +168,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
-// export default withFirebaseAuth({
-//   providers,
-//   firebaseAppAuth,
-// })(SignUp);
+ export default SignUp;

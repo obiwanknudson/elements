@@ -24,7 +24,7 @@ import Nutrition from './images/Nutrition.png';
 class Physical extends React.Component {
   render() {
     return (
-      <div className="App" style={{ paddingTop:60, }}>
+      <div className="App" style={{ paddingTop:40, }}>
 
         <body style={{ margin:16, }}>
 
@@ -42,7 +42,7 @@ class Physical extends React.Component {
               <ListItemText>Strength</ListItemText> 
             </ListItem>
             
-            <ListItem button component="a" href= './Endurance'>
+            <ListItem button component="a" href= './physical/Endurance'>
               <ListItemAvatar><Avatar style={{ borderRadius: 0 }}alt="Endurance" src={Endurance} /></ListItemAvatar>
               <ListItemText>Endurance</ListItemText> 
            </ListItem>
